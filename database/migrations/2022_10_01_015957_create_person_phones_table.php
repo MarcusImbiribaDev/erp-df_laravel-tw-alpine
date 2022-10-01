@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('ddd', 2);
             $table->string('phone_number', 9);
             $table->timestamps();
+            $table->unique(['person_id', 'ddd', 'phone_number']);
         });
     }
 

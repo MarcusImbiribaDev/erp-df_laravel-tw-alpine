@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('cpf', 11)->unique();
             $table->string('first_name', 50);
             $table->string('last_name', 50);
-            $table->enum('sex', ['M', 'F']);
-            $table->unsignedBigInteger('person_email_id');
-            $table->foreign('person_email_id')->references('id')->on('person_emails');
+            $table->enum('sex', ['M', 'F'])->nullable();
+            $table->unsignedBigInteger('person_email_id')->unique()->nullable();
             $table->timestamps();
         });
     }

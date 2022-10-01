@@ -21,6 +21,10 @@ return new class extends Migration
             $table->enum('type', ['personal', 'business']);
             $table->timestamps();
         });
+
+        Schema::table('people', function (Blueprint $table) {
+            $table->foreign('person_email_id')->references('id')->on('person_emails');
+        });
     }
 
     /**
