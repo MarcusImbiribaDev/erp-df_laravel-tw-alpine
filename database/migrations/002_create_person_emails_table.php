@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('person_id');
             $table->foreign('person_id')->references('id')->on('people');
-            $table->string('email', 100);
+            $table->string('email', 100)->unique();
             $table->enum('type', ['personal', 'business']);
             $table->timestamps();
         });
