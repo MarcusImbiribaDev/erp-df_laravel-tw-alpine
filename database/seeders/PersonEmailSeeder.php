@@ -22,5 +22,11 @@ class PersonEmailSeeder extends Seeder
                 'person_id' => $person->id,
             ]);
         });
+
+        //set randon email as main email for each person.
+        Person::all()->each(function ($person) {
+            $person->person_email_id = PersonEmail::where('person_id', $person->id)->inRandomOrder()->first()->id;
+            $person->save();
+        });
     }
 }
