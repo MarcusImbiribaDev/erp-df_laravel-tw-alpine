@@ -15,7 +15,8 @@ class PersonEmailController extends Controller
      */
     public function index()
     {
-        //
+        $personEmails = PersonEmail::all();
+        return view('person_email.index', ['records' => $personEmails]);
     }
 
     /**

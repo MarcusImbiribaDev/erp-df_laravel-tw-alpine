@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('People') }}
+      {{ __('Person Emails') }}
     </h2>
   </x-slot>
 
@@ -14,17 +14,15 @@
               :$records
               :columns='[
                 ["name" => "Id"],
-                ["name" => "CPF"],
-                ["name" => "First Name"],
-                ["name" => "Last Name"],
-                ["name" => "Sex"],
+                ["name" => "Person"],
+                ["name" => "Email"],
+                ["name" => "Type"],
                 ["name" => "Actions"]
               ]'
               :rows='[
-                ["name" => "cpf"],
-                ["name" => "first_name"],
-                ["name" => "last_name"],
-                ["name" => "sex"]
+                ["name" => "person_id"],
+                ["name" => "email"],
+                ["name" => "type"]
               ]'
             >
             </x-tables.simple>
