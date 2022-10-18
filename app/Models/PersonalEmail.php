@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PersonEmail extends Model
+class PersonalEmail extends Model
 {
     use HasFactory;
 
@@ -20,7 +20,7 @@ class PersonEmail extends Model
     /**
      * Get the person that owns the main email.
      */
-    public function personMainEmail()
+    public function personalMainEmail()
     {
         return $this->hasOne(Person::class);
     }

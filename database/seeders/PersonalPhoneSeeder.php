@@ -5,9 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Person;
-use App\Models\PersonPhone;
+use App\Models\PersonalPhone;
 
-class PersonPhoneSeeder extends Seeder
+class PersonalPhoneSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class PersonPhoneSeeder extends Seeder
     {
         //create 3 mobile phones for each person.
         Person::all()->each(function ($person) {
-            PersonPhone::factory()->count(3)->create([
+            PersonalPhone::factory()->count(3)->create([
                 'person_id' => $person->id,
             ]);
         });
