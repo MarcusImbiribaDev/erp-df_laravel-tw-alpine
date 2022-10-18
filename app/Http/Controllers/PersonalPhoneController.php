@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PersonPhone;
+use App\Models\PersonalPhone;
 use Illuminate\Http\Request;
 
-class PersonPhoneController extends Controller
+class PersonalPhoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PersonPhoneController extends Controller
      */
     public function index()
     {
-        $personPhones = PersonPhone::all();
-        return view('person_phone.index', ['personPhones' => $personPhones]);
+        $personalPhones = PersonalPhone::all()->sortBy('id');
+        return view('personal_phone.index', ['personalPhones' => $personalPhones]);
     }
 
     /**

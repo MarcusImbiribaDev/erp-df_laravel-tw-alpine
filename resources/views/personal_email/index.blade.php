@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Personal Phones') }}
+      {{ __('Person Emails') }}
     </h2>
   </x-slot>
 
@@ -14,18 +14,16 @@
               <x-slot:header>
                 <x-table.column>Id</x-table.column>
                 <x-table.column>{{ __('Person') }}</x-table.column>
-                <x-table.column>{{ __('Mobile Operator') }}</x-table.column>
-                <x-table.column>DDD</x-table.column>
-                <x-table.column>{{ __('Phone Number') }}</x-table.column>
+                <x-table.column>{{ __('Email') }}</x-table.column>
+                <x-table.column>{{ __('Type') }}</x-table.column>
                 <x-table.column>{{ __('Actions') }}</x-table.column>
               </x-slot>
-              @foreach ($personPhones as $personPhone)
+              @foreach ($personalEmails as $personalEmail)
                 <x-table.row>
-                  <x-table.cell>{{ $personPhone->id }}</x-table.cell>
-                  <x-table.cell>{{ $personPhone->person_id }}</x-table.cell>
-                  <x-table.cell>{{ $personPhone->mobile_operator }}</x-table.cell>
-                  <x-table.cell>{{ $personPhone->ddd }}</x-table.cell>
-                  <x-table.cell>{{ $personPhone->phone_number }}</x-table.cell>
+                  <x-table.cell>{{ $personalEmail->id }}</x-table.cell>
+                  <x-table.cell>{{ $personalEmail->person_id }}</x-table.cell>
+                  <x-table.cell>{{ $personalEmail->email }}</x-table.cell>
+                  <x-table.cell>{{ $personalEmail->type }}</x-table.cell>
                   <x-table.cell>
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> |
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>

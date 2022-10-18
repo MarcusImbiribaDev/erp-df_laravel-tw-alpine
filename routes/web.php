@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
-use App\Http\Controllers\PersonEmailController;
-use App\Http\Controllers\PersonPhoneController;
+use App\Http\Controllers\PersonalEmailController;
+use App\Http\Controllers\PersonalPhoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('people', PersonController::class);
-Route::resource('personal_emails', PersonEmailController::class);
-Route::resource('personal_phones', PersonPhoneController::class);
+Route::resource('personal_emails', PersonalEmailController::class);
+Route::resource('personal_phones', PersonalPhoneController::class);
 
 require __DIR__.'/auth.php';

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePersonEmailRequest;
 use App\Http\Requests\UpdatePersonEmailRequest;
-use App\Models\PersonEmail;
+use App\Models\PersonalEmail;
 
-class PersonEmailController extends Controller
+class PersonalEmailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PersonEmailController extends Controller
      */
     public function index()
     {
-        $personEmails = PersonEmail::all();
-        return view('person_email.index', ['personEmails' => $personEmails]);
+        $personalEmails = PersonalEmail::all()->sortBy('id');
+        return view('personal_email.index', ['personalEmails' => $personalEmails]);
     }
 
     /**
@@ -46,7 +46,7 @@ class PersonEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personEmail
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonEmail $personEmail)
+    public function show(PersonalEmail $personEmail)
     {
         //
     }
@@ -57,7 +57,7 @@ class PersonEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personEmail
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonEmail $personEmail)
+    public function edit(PersonalEmail $personEmail)
     {
         //
     }
@@ -69,7 +69,7 @@ class PersonEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personEmail
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePersonEmailRequest $request, PersonEmail $personEmail)
+    public function update(UpdatePersonEmailRequest $request, PersonalEmail $personEmail)
     {
         //
     }
@@ -80,7 +80,7 @@ class PersonEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personEmail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PersonEmail $personEmail)
+    public function destroy(PersonalEmail $personEmail)
     {
         //
     }

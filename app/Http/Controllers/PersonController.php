@@ -14,7 +14,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $people = Person::all();
+        $people = Person::all()->sortBy('id');
         return view('person.index', ['people' => $people]);
         // return view('person.index', compact('people'));
     }
