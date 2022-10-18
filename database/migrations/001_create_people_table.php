@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->enum('sex', ['M', 'F'])->nullable();
-            $table->unsignedBigInteger('person_email_id')->unique()->nullable();
+            $table->unsignedBigInteger('personal_email_id')->unique()->nullable();
             $table->timestamps();
         });
     }
