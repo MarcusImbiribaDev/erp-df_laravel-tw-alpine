@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePersonEmailRequest;
-use App\Http\Requests\UpdatePersonEmailRequest;
-use App\Models\PersonEmail;
+use App\Models\PersonPhone;
+use Illuminate\Http\Request;
 
-class PersonEmailController extends Controller
+class PersonPhoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PersonEmailController extends Controller
      */
     public function index()
     {
-        $personEmails = PersonEmail::all();
-        return view('person_email.index', ['personEmails' => $personEmails]);
+        $personPhones = PersonPhone::all();
+        return view('person_phone.index', ['personPhones' => $personPhones]);
     }
 
     /**
@@ -32,10 +31,10 @@ class PersonEmailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePersonEmailRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePersonEmailRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -43,10 +42,10 @@ class PersonEmailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonEmail $personEmail)
+    public function show($id)
     {
         //
     }
@@ -54,10 +53,10 @@ class PersonEmailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonEmail $personEmail)
+    public function edit($id)
     {
         //
     }
@@ -65,11 +64,11 @@ class PersonEmailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePersonEmailRequest  $request
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePersonEmailRequest $request, PersonEmail $personEmail)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +76,10 @@ class PersonEmailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PersonEmail $personEmail)
+    public function destroy($id)
     {
         //
     }

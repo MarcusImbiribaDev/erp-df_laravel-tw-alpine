@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PersonEmailController;
+use App\Http\Controllers\PersonPhoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,6 @@ Route::get('/dashboard', function () {
 
 Route::resource('people', PersonController::class);
 Route::resource('personal_emails', PersonEmailController::class);
+Route::resource('personal_phones', PersonPhoneController::class);
 
 require __DIR__.'/auth.php';
