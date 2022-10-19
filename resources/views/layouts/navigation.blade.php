@@ -34,30 +34,47 @@
                     </x-slot>
 
                     <x-slot name="content">
-                      <a 
+                      <x-dropdown-link
                         x-data="{
                           toggleDark: () => {
                             localStorage.theme = 'dark';
                             document.documentElement.classList.add('dark');
                           },
                         }"
-                        class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                        class="cursor-pointer"
                         @click="toggleDark"
                       >
                         {{ __('Dark Mode') }}
-                      </a>
-                      <a 
+                      </x-dropdown-link>
+                      <x-dropdown-link
                         x-data="{
                           toggleLight: () => {
                             localStorage.theme = 'light';
                             document.documentElement.classList.remove('dark');
                           },
                         }"
-                        class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                        class="cursor-pointer"
                         @click="toggleLight"
                       >
                         {{ __('Light Mode') }}
-                      </a>
+                      </x-dropdown-link>
+                      <x-dropdown-link
+                        x-data="{
+                          toggleSystem: () => {
+                            if (localStorage.theme === 'dark') {
+                                document.documentElement.classList.remove('dark');
+                                localStorage.removeItem('dark');
+                                window.location.reload();
+                            } else {
+                                localStorage.removeItem('light');
+                                window.location.reload();
+                            }
+                          },
+                        }"
+                        class="cursor-pointer"
+                        @click="toggleSystem">
+                          {{ __('System Mode') }}
+                      </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
                 <x-dropdown align="right" width="48">
