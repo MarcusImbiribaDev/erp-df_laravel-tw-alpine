@@ -11,7 +11,7 @@
           <x-index_page.body-header>
             <x-slot:title>{{ __('List Personal Emails') }}</x-slot>
             <x-slot:subTitle>{{ __('List all physical persons emails.') }}</x-slot>
-            <x-form.button url="{{ route('people.create') }}">{{ __("New") }}</x-form.button>
+            <x-form.button url="{{ route('personal_emails.create') }}">{{ __("New") }}</x-form.button>
           </x-index_page.body-header>
 
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
