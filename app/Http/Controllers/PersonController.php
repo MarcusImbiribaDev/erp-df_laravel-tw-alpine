@@ -48,7 +48,7 @@ class PersonController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -57,9 +57,9 @@ class PersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Person $person)
     {
-        //
+        return view('person.edit', ['person' => $person]);
     }
 
     /**
