@@ -7,23 +7,13 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-700 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white dark:bg-gray-600 border-b border-gray-200">
-          <div class="flex flex-row">
-            <div class="basis-1/2">
-              <div class="px-4 py-5 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
-                  {{ __('List Personal Emails') }}
-                </h3>
-                <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-300">
-                  {{ __('List all physical persons emails.') }}
-                </p>
-              </div>
-            </div>
-            <div class="basis-1/2 text-right">
-              <div class="px-4 py-5 sm:px-6">
-                <x-form.button url="{{ route('people.create') }}">{{ __("New") }}</x-form.button>
-              </div>
-            </div>
-          </div>
+
+          <x-index_page.body-header>
+            <x-slot:title>{{ __('List Personal Emails') }}</x-slot>
+            <x-slot:subTitle>{{ __('List all physical persons emails.') }}</x-slot>
+            <x-form.button url="{{ route('people.create') }}">{{ __("New") }}</x-form.button>
+          </x-index_page.body-header>
+
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <x-table>
               <x-slot:header>
