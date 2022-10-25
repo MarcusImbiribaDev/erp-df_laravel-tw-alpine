@@ -26,8 +26,9 @@
                 <x-form.input-text name="cpf" label="CPF" />
                 <x-form.select name="sex" label="{{ __('Sex')}}" autocomplete="sex">
                   <option value="" disabled selected></option>
-                  <option value="F">{{ __('Female') }}</option>
-                  <option value="M">{{ __('Male') }}</option>
+                  @foreach ($sexEnum as $sex)
+                    <option value="{{ $sex->name }}">{{ __($sex->value) }}</option>
+                  @endforeach
                 </x-form.select>
                 <x-form.input-text name="email" label="{{ __('Main Email') }}" autocomplete="email" />
               </div>

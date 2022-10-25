@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use App\Enums\SexEnum;
 
 class PersonController extends Controller
 {
@@ -16,7 +17,6 @@ class PersonController extends Controller
     {
         $people = Person::all()->sortBy('id');
         return view('person.index', ['people' => $people]);
-        // return view('person.index', compact('people'));
     }
 
     /**
@@ -26,7 +26,8 @@ class PersonController extends Controller
      */
     public function create()
     {
-        return view('person.create');
+        $sexEnum = SexEnum::cases();
+        return view('person.create', ['sexEnum' => $sexEnum]);
     }
 
     /**
@@ -59,7 +60,9 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-        return view('person.edit', ['person' => $person]);
+        $sexEnum = SexEnum::cases();
+        $data = array('person' => $person, 'sexEnum' => $sexEnum);
+        return view('person.edit', $data);
     }
 
     /**

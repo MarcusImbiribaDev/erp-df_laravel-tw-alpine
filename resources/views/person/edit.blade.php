@@ -25,17 +25,13 @@
                 <x-form.input-text name="last_name" label="{{ __('Last name') }}" autocomplete="family-name" value="{{ $person->last_name }}" />
                 <x-form.input-text name="cpf" label="CPF" value="{{ $person->cpf }}" />
                 <x-form.select name="sex" label="{{ __('Sex')}}" autocomplete="sex">
-                  @if ($person->sex === 'F')
-                    <option value="{{ $person->sex }}" selected>{{ __('Female') }}</option>
-                    <option value="M">{{ __('Male') }}</option>
-                  @elseif ($person->sex === 'M')
-                    <option value="M">{{ __('Male') }}</option>
-                    <option value="{{ $person->sex }}" selected>{{ __('Male') }}</option>
-                  @else
-                    <option value="" disabled selected></option>
-                    <option value="F">{{ __('Female') }}</option>
-                    <option value="M">{{ __('Male') }}</option>
-                  @endif
+                  @foreach ($sexEnum as $sex)
+                    @if ($person->sex === $sex->name)
+                      <option value="{{ $sex->name }}" selected>{{ __($sex->value) }}</option>
+                    @else
+                      <option value="{{ $sex->name }}">{{ __($sex->value) }}</option>
+                    @endif
+                  @endforeach
                 </x-form.select>
                 <x-form.input-text name="email" label="{{ __('Main Email') }}" autocomplete="email" value="{{ $person->personal_email_id }}" />
               </div>
