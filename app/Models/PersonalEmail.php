@@ -20,7 +20,7 @@ class PersonalEmail extends Model
     /**
      * Get the person that owns the main email.
      */
-    public function personalMainEmail()
+    public function mainEmailPerson()
     {
         return $this->hasOne(Person::class);
     }

@@ -14,7 +14,7 @@ class Person extends Model
      */
     public function emails()
     {
-        return $this->hasMany(PersonEmail::class);
+        return $this->hasMany(PersonalEmail::class);
     }
 
     /**
@@ -23,6 +23,6 @@ class Person extends Model
 
     public function mainEmail()
     {
-        return $this->belongsTo(PersonEmail::class);
+        return $this->belongsTo(PersonalEmail::class, 'personal_email_id');
     }
 }

@@ -44,7 +44,7 @@
                   <x-table.cell>{{ $person->first_name }}</x-table.cell>
                   <x-table.cell>{{ $person->last_name }}</x-table.cell>
                   <x-table.cell>{{ $person->sex }}</x-table.cell>
-                  <x-table.cell>{{ $person->personal_email_id }}</x-table.cell>
+                  <x-table.cell>{{ $person->mainEmail->email }}</x-table.cell>
                   <x-table.cell>
                     <a href="{{ route('people.edit', $person->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __("Edit") }}</a> |
                     <a href="{{ route('people.show', $person->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __("Show") }}</a>
