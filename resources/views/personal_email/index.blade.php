@@ -30,8 +30,8 @@
                   <x-table.cell>{{ $personalEmail->email }}</x-table.cell>
                   <x-table.cell>{{ $personalEmail->type }}</x-table.cell>
                   <x-table.cell>
-                    <a href="{{ route('personal_emails.edit', $personalEmail->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> |
-                    <a href="{{ route('personal_emails.show', $personalEmail->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                    <x-table.action url="{{ route('personal_emails.edit', $personalEmail->id) }}">{{ __("Edit") }}</x-table.action> |
+                    <x-table.action url="{{ route('personal_emails.show', $personalEmail->id) }}">{{ __("Show") }}</x-table.action>
                   </x-table.cell>
                 </x-table.row>
               @endforeach

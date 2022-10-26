@@ -34,8 +34,8 @@
                   <x-table.cell>{{ $person->sex }}</x-table.cell>
                   <x-table.cell>{{ $person->mainEmail->email }}</x-table.cell>
                   <x-table.cell>
-                    <a href="{{ route('people.edit', $person->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __("Edit") }}</a> |
-                    <a href="{{ route('people.show', $person->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ __("Show") }}</a>
+                    <x-table.action url="{{ route('people.edit', $person->id) }}">{{ __("Edit") }}</x-table.action> |
+                    <x-table.action url="{{ route('people.show', $person->id) }}">{{ __("Show") }}</x-table.action>
                   </x-table.cell>
                 </x-table.row>
               @endforeach
