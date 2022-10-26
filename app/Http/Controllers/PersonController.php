@@ -44,18 +44,18 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Person $person
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Person $person)
     {
-        
+        return view('person.show', ['person' => $person]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Person $person
      * @return \Illuminate\Http\Response
      */
     public function edit(Person $person)

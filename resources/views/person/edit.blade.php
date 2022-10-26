@@ -24,7 +24,7 @@
                 <x-form.input-text name="first_name" label="{{ __('First name') }}" autocomplete="given-name" value="{{ $person->first_name }}" />
                 <x-form.input-text name="last_name" label="{{ __('Last name') }}" autocomplete="family-name" value="{{ $person->last_name }}" />
                 <x-form.input-text name="cpf" label="CPF" value="{{ $person->cpf }}" />
-                <x-form.select name="sex" label="{{ __('Sex')}}" autocomplete="sex">
+                <x-form.select name="sex" label="{{ __('Sex') }}" autocomplete="sex">
                   @foreach ($sexEnum as $sex)
                     @if ($person->sex === $sex->name)
                       <option value="{{ $sex->name }}" selected>{{ __($sex->value) }}</option>
