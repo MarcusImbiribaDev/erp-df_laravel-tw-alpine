@@ -33,7 +33,15 @@
                     @endif
                   @endforeach
                 </x-form.select>
-                <x-form.input-text name="email" label="{{ __('Main Email') }}" autocomplete="email" value="{{ $person->personal_email_id }}" />
+                <x-form.select name="email" label="{{ __('Main Email')}}" autocomplete="email">
+                  @foreach ($person->emails as $personEmail)
+                    @if ($personEmail->id === $person->personal_email_id)
+                      <option value="{{ $personEmail->email }}" selected>{{ $personEmail->email }}</option>
+                    @else
+                      <option value="{{ $personEmail->email }}">{{ $personEmail->email }}</option>
+                    @endif
+                  @endforeach
+                </x-form.select>
               </div>
               <div class="flex justify-end mt-4">
                 <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
