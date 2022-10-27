@@ -32,7 +32,7 @@
                   <x-table.cell>{{ $person->first_name }}</x-table.cell>
                   <x-table.cell>{{ $person->last_name }}</x-table.cell>
                   <x-table.cell>{{ $person->sex }}</x-table.cell>
-                  <x-table.cell>{{ $person->mainEmail->email }}</x-table.cell>
+                  <x-table.cell>{{ $person->mainEmail->email ?? '--' }}</x-table.cell>
                   <x-table.cell>
                     <x-table.action url="{{ route('people.edit', $person->id) }}">{{ __("Edit") }}</x-table.action> |
                     <x-table.action url="{{ route('people.show', $person->id) }}">{{ __("Show") }}</x-table.action>

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Person;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePersonRequest;
+use App\Http\Requests\UpdatePersonRequest;
 use App\Enums\SexEnum;
 
 class PersonController extends Controller
@@ -33,12 +34,23 @@ class PersonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StorePersonRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePersonRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $person = new Person;
+
+        $person->cpf = $validatedData["cpf"];
+        $person->first_name = $validatedData["first_name"];
+        $person->last_name = $validatedData["last_name"];
+        $person->sex = $validatedData["sex"] ?? null;
+
+        $person->save();
+
+        return redirect()->route('people.index');
     }
 
     /**
@@ -68,11 +80,11 @@ class PersonController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\StorePersonRequest  $request
+     * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePersonRequest $request, Person $person)
     {
         //
     }

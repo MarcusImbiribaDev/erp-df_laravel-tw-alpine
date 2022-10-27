@@ -25,7 +25,7 @@
                 <x-form.input-text name="last_name" label="{{ __('Last name') }}" value="{{ $person->last_name }}" disabled />
                 <x-form.input-text name="cpf" label="CPF" value="{{ $person->cpf }}" disabled />
                 <x-form.input-text name="sex" label="{{ __('Sex') }}" value="{{ $person->sex }}" disabled />
-                <x-form.input-text name="email" label="{{ __('Main Email') }}" value="{{ $person->mainEmail->email }}" disabled />
+                <x-form.input-text name="email" label="{{ __('Main Email') }}" value="{{ $person->mainEmail->email ?? '' }}" disabled />
               </div>
               <div class="flex justify-end mt-4">
                 <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
