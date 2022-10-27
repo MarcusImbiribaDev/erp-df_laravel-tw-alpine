@@ -18,8 +18,15 @@
             </p>
           </div>
           <div class="px-4 py-5 sm:p-6">
-            <form action="{{ route('people.store') }}" method="POST">
-              @csrf
+@if ($errors->any())
+  <ul>
+      @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+      @endforeach
+  </ul>
+@endif
+
+            <form action="{{ route('people.update', $person) }}" method="POST"> @csrf @method('PUT')
               <div class="grid grid-cols-6 gap-6">
                 <x-form.input-text name="first_name" label="{{ __('First name') }}" autocomplete="given-name" value="{{ $person->first_name }}" />
                 <x-form.input-text name="last_name" label="{{ __('Last name') }}" autocomplete="family-name" value="{{ $person->last_name }}" />
@@ -45,7 +52,7 @@
               </div>
               <div class="flex justify-end mt-4">
                 <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  {{ __('Create') }}
+                  {{ __('Save') }}
                 </button>
             </form>
             <a href="{{ route('people.index') }}" class="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">

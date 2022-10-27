@@ -46,7 +46,7 @@ class PersonController extends Controller
         $person->cpf = $validatedData["cpf"];
         $person->first_name = $validatedData["first_name"];
         $person->last_name = $validatedData["last_name"];
-        $person->sex = $validatedData["sex"] ?? null;
+        $person->sex = $validatedData["sex"];
 
         $person->save();
 
@@ -80,13 +80,22 @@ class PersonController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StorePersonRequest  $request
+     * @param  \App\Http\Requests\UpdatePersonRequest  $request
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePersonRequest $request, Person $person)
     {
-        //
+        $validatedData = $request->validated();
+
+        $person->cpf = $validatedData["cpf"];
+        $person->first_name = $validatedData["first_name"];
+        $person->last_name = $validatedData["last_name"];
+        $person->sex = $validatedData["sex"];
+
+        $person->save();
+
+        return redirect()->route('people.index');
     }
 
     /**

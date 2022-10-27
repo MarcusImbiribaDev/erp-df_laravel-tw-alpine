@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
-class StorePersonRequest extends FormRequest
+class UpdatePersonRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +26,7 @@ class StorePersonRequest extends FormRequest
     public function rules()
     {
         return [
-            'cpf' => 'required',
+            'cpf' => ['required', Rule::unique('people')->ignore($this->person)],
             'first_name' => 'required',
             'last_name' => 'required',
             'sex' => 'required'
