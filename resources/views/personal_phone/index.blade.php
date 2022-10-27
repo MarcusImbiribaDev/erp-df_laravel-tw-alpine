@@ -32,8 +32,8 @@
                   <x-table.cell>{{ $personalPhone->ddd }}</x-table.cell>
                   <x-table.cell>{{ $personalPhone->phone_number }}</x-table.cell>
                   <x-table.cell>
-                    <x-table.action url="{{ route('personal_phones.edit', $personalPhone->id) }}">{{ __("Edit") }}</x-table.action> |
-                    <x-table.action url="{{ route('personal_phones.show', $personalPhone->id) }}">{{ __("Show") }}</x-table.action>
+                    <x-table.action url="{{ route('personal_phones.edit', $personalPhone) }}">{{ __("Edit") }}</x-table.action> |
+                    <x-table.action url="{{ route('personal_phones.show', $personalPhone) }}">{{ __("Show") }}</x-table.action>
                   </x-table.cell>
                 </x-table.row>
               @endforeach
