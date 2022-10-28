@@ -101,11 +101,13 @@ class PersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Person $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Person $person)
     {
-        //
+        $person->delete();
+
+        return redirect()->route('people.index');
     }
 }

@@ -18,8 +18,7 @@
             </p>
           </div>
           <div class="px-4 py-5 sm:p-6">
-            <form action="{{ route('people.store') }}" method="POST">
-              @csrf
+            <form action="{{ route('people.destroy', $person) }}" method="POST">@csrf @method('DELETE')
               <div class="grid grid-cols-6 gap-6">
                 <x-form.input-text name="first_name" label="{{ __('First name') }}" value="{{ $person->first_name }}" disabled />
                 <x-form.input-text name="last_name" label="{{ __('Last name') }}" value="{{ $person->last_name }}" disabled />
