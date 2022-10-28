@@ -24,8 +24,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('people', PersonController::class);
-Route::resource('personal_emails', PersonalEmailController::class);
-Route::resource('personal_phones', PersonalPhoneController::class);
+Route::resource('people', PersonController::class)->middleware('auth');
+Route::resource('personal_emails', PersonalEmailController::class)->middleware('auth');
+Route::resource('personal_phones', PersonalPhoneController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
