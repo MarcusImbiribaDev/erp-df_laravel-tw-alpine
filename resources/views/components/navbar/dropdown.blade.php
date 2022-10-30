@@ -11,11 +11,10 @@
       </svg>
     </button>
 
-    <div
+    <div x-show="isActive"
       class="absolute right-0 z-10 mt-4 w-56 origin-top-right rounded-md border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-700"
       x-cloak
       x-transition
-      x-show="isActive"
       x-on:click.away="isActive = false"
       x-on:keydown.escape.window="isActive = false"
     >
