@@ -11,6 +11,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body class="font-sans antialiased">
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
     <div class="min-h-screen bg-gray-100 dark:bg-gray-500">
       @include('layouts.navigation')  
       <!-- Page Heading -->
