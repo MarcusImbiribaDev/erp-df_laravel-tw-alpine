@@ -55,7 +55,7 @@ class PersonalEmailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  \App\Models\PersonEmail  $personalEmail
      * @return \Illuminate\Http\Response
      */
     public function show(PersonalEmail $PersonalEmail)
@@ -66,19 +66,21 @@ class PersonalEmailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  \App\Models\PersonEmail  $personalEmail
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonalEmail $personEmail)
+    public function edit(PersonalEmail $personalEmail)
     {
-        //
+        $contactTypeEnum = ContactTypeEnum::cases();
+        $data = array('personalEmail' => $personalEmail, 'contactTypeEnum' => $contactTypeEnum);
+        return view('personal_email.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatePersonEmailRequest  $request
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  \App\Models\PersonEmail  $personalEmail
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePersonEmailRequest $request, PersonalEmail $personEmail)
@@ -89,7 +91,7 @@ class PersonalEmailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PersonEmail  $personEmail
+     * @param  \App\Models\PersonEmail  $personalEmail
      * @return \Illuminate\Http\Response
      */
     public function destroy(PersonalEmail $personalEmail)

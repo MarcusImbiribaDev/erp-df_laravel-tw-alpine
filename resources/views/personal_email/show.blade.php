@@ -11,7 +11,7 @@
         <div class="p-6 bg-white dark:bg-gray-600 border-b border-gray-200">
           <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
-              {{ __('Show Persal Emails') }}
+              {{ __('Show Personal Emails') }}
             </h3>
             <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-300">
               {{ __('Show personal data.') }}

@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot:header>
     <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
-      {{ __('People') }}
+      {{ __('Personal Emails') }}
     </h2>
   </x-slot>
 
@@ -11,10 +11,10 @@
         <div class="p-6 bg-white dark:bg-gray-600 border-b border-gray-200">
           <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
-              {{ __('Edit Person') }}
+              {{ __('Edit Personal Emails') }}
             </h3>
             <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-300">
-              {{ __('Edit personal data.') }}
+              {{ __('Edit personal email data.') }}
             </p>
           </div>
           <div class="px-4 py-5 sm:p-6">
@@ -26,26 +26,16 @@
   </ul>
 @endif
 
-            <form action="{{ route('people.update', $person) }}" method="POST">@csrf @method('PUT')
+            <form action="{{ route('personal_emails.update', $personalEmail) }}" method="POST">@csrf @method('PUT')
               <div class="grid grid-cols-6 gap-6">
-                <x-form.input-text name="first_name" label="{{ __('First name') }}" autocomplete="given-name" value="{{ $person->first_name }}" />
-                <x-form.input-text name="last_name" label="{{ __('Last name') }}" autocomplete="family-name" value="{{ $person->last_name }}" />
-                <x-form.input-text name="cpf" label="CPF" value="{{ $person->cpf }}" />
-                <x-form.select name="sex" label="{{ __('Sex') }}" autocomplete="sex">
-                  @foreach ($sexEnum as $sex)
-                    @if ($person->sex === $sex->name)
-                      <option value="{{ $sex->name }}" selected>{{ __($sex->value) }}</option>
+                <x-form.input-text name="person_id" label="{{ __('Person') }}" autocomplete="given-name" value="{{ $personalEmail->person_id }}" />
+                <x-form.input-text name="email" label="{{ __('Email') }}" autocomplete="family-name" value="{{ $personalEmail->email }}" />
+                <x-form.select name="type" label="{{ __('Type') }}">
+                  @foreach ($contactTypeEnum as $contactType)
+                    @if ($personalEmail->type === $contactType->value)
+                      <option value="{{ $contactType->value }}" selected>{{ __($contactType->value) }}</option>
                     @else
-                      <option value="{{ $sex->name }}">{{ __($sex->value) }}</option>
-                    @endif
-                  @endforeach
-                </x-form.select>
-                <x-form.select name="email" label="{{ __('Main Email')}}" autocomplete="email">
-                  @foreach ($person->emails as $personEmail)
-                    @if ($personEmail->id === $person->personal_email_id)
-                      <option value="{{ $personEmail->email }}" selected>{{ $personEmail->email }}</option>
-                    @else
-                      <option value="{{ $personEmail->email }}">{{ $personEmail->email }}</option>
+                      <option value="{{ $contactType->value }}">{{ __($contactType->value) }}</option>
                     @endif
                   @endforeach
                 </x-form.select>
