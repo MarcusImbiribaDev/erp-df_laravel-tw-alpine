@@ -92,8 +92,10 @@ class PersonalEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personEmail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PersonalEmail $personEmail)
+    public function destroy(PersonalEmail $personalEmail)
     {
-        //
+        $personalEmail->delete();
+
+        return redirect()->route('personal_emails.index');
     }
 }
