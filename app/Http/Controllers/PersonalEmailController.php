@@ -58,9 +58,9 @@ class PersonalEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personEmail
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonalEmail $personEmail)
+    public function show(PersonalEmail $PersonalEmail)
     {
-        //
+        return view('personal_email.show', ['personalEmail' => $PersonalEmail]);
     }
 
     /**
