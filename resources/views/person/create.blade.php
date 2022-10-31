@@ -18,8 +18,7 @@
             </p>
           </div>
           <div class="px-4 py-5 sm:p-6">
-            <form action="{{ route('people.store') }}" method="POST">
-              @csrf
+            <form action="{{ route('people.store') }}" method="POST">@csrf
               <div class="grid grid-cols-6 gap-6">
                 <x-form.input-text name="first_name" label="{{ __('First name') }}" autocomplete="given-name" />
                 <x-form.input-text name="last_name" label="{{ __('Last name') }}" autocomplete="family-name" />
