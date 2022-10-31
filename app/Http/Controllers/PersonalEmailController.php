@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePersonEmailRequest;
 use App\Http\Requests\UpdatePersonEmailRequest;
 use App\Models\PersonalEmail;
+use App\Enums\ContactTypeEnum;
 
 class PersonalEmailController extends Controller
 {
@@ -26,7 +27,8 @@ class PersonalEmailController extends Controller
      */
     public function create()
     {
-        //
+        $contactTypeEnum = ContactTypeEnum::cases();
+        return view('personal_email.create', ['contactTypeEnum' => $contactTypeEnum]);
     }
 
     /**

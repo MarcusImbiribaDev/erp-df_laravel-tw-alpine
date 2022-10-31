@@ -26,7 +26,7 @@
               @foreach ($personalEmails as $personalEmail)
                 <x-table.row>
                   <x-table.cell>{{ $personalEmail->id }}</x-table.cell>
-                  <x-table.cell>{{ $personalEmail->person_id }}</x-table.cell>
+                  <x-table.cell>{{ $personalEmail->person->first_name .' '. $personalEmail->person->last_name }}</x-table.cell>
                   <x-table.cell>{{ $personalEmail->email }}</x-table.cell>
                   <x-table.cell>{{ $personalEmail->type }}</x-table.cell>
                   <x-table.cell>
