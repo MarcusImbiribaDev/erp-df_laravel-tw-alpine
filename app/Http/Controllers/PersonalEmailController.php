@@ -39,7 +39,17 @@ class PersonalEmailController extends Controller
      */
     public function store(StorePersonEmailRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $personalEmail = new PersonalEmail;
+
+        $personalEmail->person_id = $validatedData["person_id"];
+        $personalEmail->email = $validatedData["email"];
+        $personalEmail->type = $validatedData["type"];
+
+        $personalEmail->save();
+
+        return redirect()->route('personal_emails.index');
     }
 
     /**

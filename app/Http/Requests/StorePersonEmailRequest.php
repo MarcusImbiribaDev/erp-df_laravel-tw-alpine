@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StorePersonEmailRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StorePersonEmailRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,9 @@ class StorePersonEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'person_id' => 'required',
+            'email' => 'required',
+            'type' => 'required'
         ];
     }
 }

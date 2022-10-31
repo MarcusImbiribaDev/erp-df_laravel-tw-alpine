@@ -3,6 +3,6 @@
 namespace App\Enums;
 
 enum ContactTypeEnum: string {
-    case PS = 'Private';
+    case PV = 'Private';
     case BS = 'Business';
 }

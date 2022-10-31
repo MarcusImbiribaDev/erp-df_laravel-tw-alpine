@@ -25,7 +25,7 @@
                 <x-form.select name="type" label="{{ __('Type') }}">
                   <option value="" disabled selected></option>
                   @foreach ($contactTypeEnum as $contactType)
-                    <option value="{{ $contactType->name }}">{{ __($contactType->value) }}</option>
+                    <option value="{{ $contactType->value }}">{{ __($contactType->value) }}</option>
                   @endforeach
                 </x-form.select>
               </div>
