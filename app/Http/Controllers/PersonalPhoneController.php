@@ -102,11 +102,13 @@ class PersonalPhoneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\PersonalPhone  $personalPhone
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(PersonalPhone $personalPhone)
     {
-        //
+        $personalPhone->delete();
+
+        return redirect()->route('personal_phones.index');
     }
 }
