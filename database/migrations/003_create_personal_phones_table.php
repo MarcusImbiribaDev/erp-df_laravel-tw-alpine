@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('mobile_operator', 50);
             $table->string('ddd', 2);
             $table->string('phone_number', 9);
+            $table->enum('type', ['Private', 'Business']);
             $table->timestamps();
             $table->unique(['person_id', 'ddd', 'phone_number']);
         });

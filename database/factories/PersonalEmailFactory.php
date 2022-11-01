@@ -18,7 +18,7 @@ class PersonalEmailFactory extends Factory
     {
         return [
             'email' => fake()->unique()->safeEmail(),
-            'type' => fake()->randomElement(['Private', 'Business']),
+            'type' => fake()->randomElement(['Private', 'Business'])
         ];
     }
 }

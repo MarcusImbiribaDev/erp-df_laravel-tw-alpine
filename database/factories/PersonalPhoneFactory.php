@@ -20,6 +20,7 @@ class PersonalPhoneFactory extends Factory
             'mobile_operator' => fake()->randomElement(['Claro', 'Oi', 'Tim', 'Vivo']),
             'ddd' => fake('pt_BR')->areaCode(),
             'phone_number' => fake('pt_BR')->cellphone(false, true),
+            'type' => fake()->randomElement(['Private', 'Business'])
         ];
     }
 }
