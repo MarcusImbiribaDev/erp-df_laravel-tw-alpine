@@ -3,10 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
-class UpdatePersonEmailRequest extends FormRequest
+class UpdatePersonPhoneRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +13,7 @@ class UpdatePersonEmailRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return false;
     }
 
     /**
@@ -27,7 +25,9 @@ class UpdatePersonEmailRequest extends FormRequest
     {
         return [
             'person_id' => 'required',
-            'email' => ['required', Rule::unique('personal_emails')->ignore($this->personal_email)],
+            'mobile_operator' => 'required',
+            'ddd' => 'required',
+            'phone_number' => 'required',
             'type' => 'required'
         ];
     }

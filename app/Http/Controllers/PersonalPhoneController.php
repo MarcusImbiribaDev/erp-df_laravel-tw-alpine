@@ -46,6 +46,7 @@ class PersonalPhoneController extends Controller
         $personalPhone->mobile_operator = $validatedData["mobile_operator"];
         $personalPhone->ddd = $validatedData["ddd"];
         $personalPhone->phone_number = $validatedData["phone_number"];
+        $personalPhone->type = $validatedData["type"];
 
         $personalPhone->save();
 
@@ -85,7 +86,17 @@ class PersonalPhoneController extends Controller
      */
     public function update(StorePersonPhoneRequest $request, PersonalPhone $personalPhone)
     {
-        //
+        $validatedData = $request->validated();
+
+        $personalPhone->person_id = $validatedData["person_id"];
+        $personalPhone->mobile_operator = $validatedData["mobile_operator"];
+        $personalPhone->ddd = $validatedData["ddd"];
+        $personalPhone->phone_number = $validatedData["phone_number"];
+        $personalPhone->type = $validatedData["type"];
+
+        $personalPhone->save();
+
+        return redirect()->route('personal_phones.index');
     }
 
     /**
