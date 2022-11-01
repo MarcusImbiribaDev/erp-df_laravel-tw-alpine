@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PersonalPhone;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePersonPhoneRequest;
 
 class PersonalPhoneController extends Controller
 {
@@ -31,12 +31,23 @@ class PersonalPhoneController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StorePersonPhoneRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePersonPhoneRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $personalPhone = new PersonalPhone;
+
+        $personalPhone->person_id = $validatedData["person_id"];
+        $personalPhone->mobile_operator = $validatedData["mobile_operator"];
+        $personalPhone->ddd = $validatedData["ddd"];
+        $personalPhone->phone_number = $validatedData["phone_number"];
+
+        $personalPhone->save();
+
+        return redirect()->route('personal_phones.index');
     }
 
     /**
