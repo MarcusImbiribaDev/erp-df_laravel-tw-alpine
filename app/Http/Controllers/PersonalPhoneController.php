@@ -72,18 +72,18 @@ class PersonalPhoneController extends Controller
     public function edit(PersonalPhone $personalPhone)
     {
         $contactTypeEnum = ContactTypeEnum::cases();
-        $data = array('personalEmail' => $personalEmail, 'contactTypeEnum' => $contactTypeEnum);
-        return view('personal_email.edit', $data);
+        $data = array('personalPhone' => $personalPhone, 'contactTypeEnum' => $contactTypeEnum);
+        return view('personal_phone.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\StorePersonPhoneRequest  $request
+     * @param  \App\Models\PersonalPhone  $personalPhone
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePersonPhoneRequest $request, PersonalPhone $personalPhone)
     {
         //
     }
