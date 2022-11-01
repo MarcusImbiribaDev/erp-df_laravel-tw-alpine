@@ -24,13 +24,19 @@
                 <x-form.input-text name="mobile_operator" label="{{ __('Mobile Operator') }}" />
                 <x-form.input-text name="ddd" label="DDD" autocomplete="tel-area-code" />
                 <x-form.input-text name="phone_number" label="{{ __('Phone Number') }}" autocomplete="tel-local" />
+                <x-form.select name="type" label="{{ __('Type') }}">
+                  <option value="" disabled selected></option>
+                  @foreach ($contactTypeEnum as $contactType)
+                    <option value="{{ $contactType->value }}">{{ __($contactType->value) }}</option>
+                  @endforeach
+                </x-form.select>  
               </div>
               <div class="flex justify-end mt-4">
                 <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   {{ __('Create') }}
                 </button>
             </form>
-            <a href="{{ route('personal_emails.index') }}" class="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+            <a href="{{ route('personal_phones.index') }}" class="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               {{ __('Cancel') }}
             </a>
           </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PersonalPhone;
 use App\Http\Requests\StorePersonPhoneRequest;
+use App\Enums\ContactTypeEnum;
 
 class PersonalPhoneController extends Controller
 {
@@ -25,7 +26,8 @@ class PersonalPhoneController extends Controller
      */
     public function create()
     {
-        return view('personal_phone.create');
+        $contactTypeEnum = ContactTypeEnum::cases();
+        return view('personal_phone.create', ['contactTypeEnum' => $contactTypeEnum]);
     }
 
     /**
@@ -64,12 +66,14 @@ class PersonalPhoneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\PersonalPhone  $personalPhone
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PersonalPhone $personalPhone)
     {
-        //
+        $contactTypeEnum = ContactTypeEnum::cases();
+        $data = array('personalEmail' => $personalEmail, 'contactTypeEnum' => $contactTypeEnum);
+        return view('personal_email.edit', $data);
     }
 
     /**

@@ -22,6 +22,7 @@
                 <x-table.column>{{ __('Mobile Operator') }}</x-table.column>
                 <x-table.column>DDD</x-table.column>
                 <x-table.column>{{ __('Phone Number') }}</x-table.column>
+                <x-table.column>{{ __('Type') }}</x-table.column>
                 <x-table.column>{{ __('Actions') }}</x-table.column>
               </x-slot>
               @foreach ($personalPhones as $personalPhone)
@@ -31,6 +32,7 @@
                   <x-table.cell>{{ $personalPhone->mobile_operator }}</x-table.cell>
                   <x-table.cell>{{ $personalPhone->ddd }}</x-table.cell>
                   <x-table.cell>{{ $personalPhone->phone_number }}</x-table.cell>
+                  <x-table.cell>{{ $personalPhone->type }}</x-table.cell>
                   <x-table.cell>
                     <x-table.action url="{{ route('personal_phones.edit', $personalPhone) }}">{{ __("Edit") }}</x-table.action> |
                     <x-table.action url="{{ route('personal_phones.show', $personalPhone) }}">{{ __("Show") }}</x-table.action>
