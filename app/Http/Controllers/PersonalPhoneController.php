@@ -53,12 +53,12 @@ class PersonalPhoneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\PersonalPhone  $personalPhone
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PersonalPhone $personalPhone)
     {
-        //
+        return view('personal_phone.show', ['personalPhone' => $personalPhone]);
     }
 
     /**
