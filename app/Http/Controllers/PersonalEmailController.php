@@ -83,9 +83,17 @@ class PersonalEmailController extends Controller
      * @param  \App\Models\PersonEmail  $personalEmail
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePersonEmailRequest $request, PersonalEmail $personEmail)
+    public function update(UpdatePersonEmailRequest $request, PersonalEmail $personalEmail)
     {
-        //
+        $validatedData = $request->validated();
+
+        $personalEmail->person_id = $validatedData["person_id"];
+        $personalEmail->email = $validatedData["email"];
+        $personalEmail->type = $validatedData["type"];
+
+        $personalEmail->save();
+
+        return redirect()->route('personal_emails.index');
     }
 
     /**

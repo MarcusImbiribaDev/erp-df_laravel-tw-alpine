@@ -1,6 +1,6 @@
 <x-app-layout>
   <x-slot:header>
-    {{ __('Person Emails') }}
+    {{ __('Personal Emails') }}
   </x-slot>
 
   <div class="py-12">
@@ -10,7 +10,7 @@
 
           <x-index_page.body-header>
             <x-slot:title>{{ __('List Personal Emails') }}</x-slot>
-            <x-slot:subTitle>{{ __('List all physical persons emails.') }}</x-slot>
+            <x-slot:subTitle>{{ __('List all personal emails.') }}</x-slot>
             <x-form.button url="{{ route('personal_emails.create') }}">{{ __("New") }}</x-form.button>
           </x-index_page.body-header>
 
