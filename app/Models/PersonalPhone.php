@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class PersonalPhone extends Model
 {
     use HasFactory;
+
+    /**
+     * Get the person that owns the email.
+     */
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
 }

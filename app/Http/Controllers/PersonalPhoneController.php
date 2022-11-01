@@ -25,7 +25,7 @@ class PersonalPhoneController extends Controller
      */
     public function create()
     {
-        //
+        return view('personal_phone.create');
     }
 
     /**

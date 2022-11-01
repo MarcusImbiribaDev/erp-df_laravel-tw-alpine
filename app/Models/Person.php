@@ -18,6 +18,14 @@ class Person extends Model
     }
 
     /**
+     * Get the phones associated with the person.
+     */
+    public function phones()
+    {
+        return $this->hasMany(PersonalPhone::class);
+    }
+
+    /**
      * Get the main email associated with the person.
      */
 

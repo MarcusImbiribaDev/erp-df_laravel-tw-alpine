@@ -10,7 +10,7 @@
 
           <x-index_page.body-header>
             <x-slot:title>{{ __('List Personal Phones') }}</x-slot>
-            <x-slot:subTitle>{{ __('List all physical persons phones.') }}</x-slot>
+            <x-slot:subTitle>{{ __('List all personal phones.') }}</x-slot>
             <x-form.button url="{{ route('personal_phones.create') }}">{{ __("New") }}</x-form.button>
           </x-index_page.body-header>
 
@@ -27,7 +27,7 @@
               @foreach ($personalPhones as $personalPhone)
                 <x-table.row>
                   <x-table.cell>{{ $personalPhone->id }}</x-table.cell>
-                  <x-table.cell>{{ $personalPhone->person_id }}</x-table.cell>
+                  <x-table.cell>{{ $personalPhone->person->first_name .' '. $personalPhone->person->last_name }}</x-table.cell>
                   <x-table.cell>{{ $personalPhone->mobile_operator }}</x-table.cell>
                   <x-table.cell>{{ $personalPhone->ddd }}</x-table.cell>
                   <x-table.cell>{{ $personalPhone->phone_number }}</x-table.cell>
