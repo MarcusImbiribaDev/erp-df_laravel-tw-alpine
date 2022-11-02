@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PersonalPhone;
 use App\Http\Requests\StorePersonPhoneRequest;
 use App\Enums\ContactTypeEnum;
+use App\Enums\MobileOperatorEnum;
 
 class PersonalPhoneController extends Controller
 {
@@ -16,6 +17,7 @@ class PersonalPhoneController extends Controller
     public function index()
     {
         $personalPhones = PersonalPhone::all()->sortBy('id');
+
         return view('personal_phone.index', ['personalPhones' => $personalPhones]);
     }
 
@@ -27,7 +29,10 @@ class PersonalPhoneController extends Controller
     public function create()
     {
         $contactTypeEnum = ContactTypeEnum::cases();
-        return view('personal_phone.create', ['contactTypeEnum' => $contactTypeEnum]);
+        $mobileOperatorEnum = MobileOperatorEnum::cases();
+        $data = array('contactTypeEnum' => $contactTypeEnum, 'mobileOperatorEnum' => $mobileOperatorEnum);
+
+        return view('personal_phone.create', $data);
     }
 
     /**
@@ -73,7 +78,13 @@ class PersonalPhoneController extends Controller
     public function edit(PersonalPhone $personalPhone)
     {
         $contactTypeEnum = ContactTypeEnum::cases();
-        $data = array('personalPhone' => $personalPhone, 'contactTypeEnum' => $contactTypeEnum);
+        $mobileOperatorEnum = MobileOperatorEnum::cases();
+        $data = array(
+            'personalPhone' => $personalPhone,
+            'contactTypeEnum' => $contactTypeEnum,
+            'mobileOperatorEnum' => $mobileOperatorEnum
+        );
+
         return view('personal_phone.edit', $data);
     }
 

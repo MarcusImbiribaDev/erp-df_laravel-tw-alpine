@@ -18,10 +18,24 @@
             </p>
           </div>
           <div class="px-4 py-5 sm:p-6">
+
+@if ($errors->any())
+  <ul>
+      @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+      @endforeach
+  </ul>
+@endif
+
             <form action="{{ route('personal_phones.store') }}" method="POST">@csrf
               <div class="grid grid-cols-6 gap-6">
                 <x-form.input-text name="person_id" label="{{ __('Person') }}" autocomplete="given-name" />
-                <x-form.input-text name="mobile_operator" label="{{ __('Mobile Operator') }}" />
+                <x-form.select name="mobile_operator" label="{{ __('Mobile Operator') }}">
+                  <option value="" disabled selected></option>
+                  @foreach ($mobileOperatorEnum as $mobileOperator)
+                    <option value="{{ $mobileOperator->value }}">{{ __($mobileOperator->value) }}</option>
+                  @endforeach
+                </x-form.select>
                 <x-form.input-text name="ddd" label="DDD" autocomplete="tel-area-code" />
                 <x-form.input-text name="phone_number" label="{{ __('Phone Number') }}" autocomplete="tel-local" />
                 <x-form.select name="type" label="{{ __('Type') }}">

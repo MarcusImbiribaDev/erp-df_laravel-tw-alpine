@@ -18,6 +18,7 @@
             </p>
           </div>
           <div class="px-4 py-5 sm:p-6">
+
 @if ($errors->any())
   <ul>
       @foreach ($errors->all() as $error)
@@ -29,7 +30,15 @@
             <form action="{{ route('personal_phones.update', $personalPhone) }}" method="POST">@csrf @method('PUT')
               <div class="grid grid-cols-6 gap-6">
                 <x-form.input-text name="person_id" label="{{ __('Person') }}" autocomplete="given-name" value="{{ $personalPhone->person_id }}" />
-                <x-form.input-text name="mobile_operator" label="{{ __('Mobile Operator') }}" value="{{ $personalPhone->mobile_operator }}" />
+                <x-form.select name="mobile_operator" label="{{ __('Mobile Operator') }}">
+                  @foreach ($mobileOperatorEnum as $mobileOperator)
+                    @if ($personalPhone->mobile_operator === $mobileOperator->value)
+                      <option value="{{ $mobileOperator->value }}" selected>{{ __($mobileOperator->value) }}</option>
+                    @else
+                      <option value="{{ $mobileOperator->value }}">{{ __($mobileOperator->value) }}</option>
+                    @endif
+                  @endforeach
+                </x-form.select>
                 <x-form.input-text name="ddd" label="DDD" autocomplete="tel-area-code" value="{{ $personalPhone->ddd }}" />
                 <x-form.input-text name="phone_number" label="{{ __('Phone Number') }}" autocomplete="tel-local" value="{{ $personalPhone->phone_number }}" />
                 <x-form.select name="type" label="{{ __('Type') }}">
